@@ -1,0 +1,21 @@
+name: Gradle Cache test
+
+on:
+  workflow_dispatch:
+    
+
+jobs:
+  test:
+    name: 'Test cache setup'
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-provider: basic
+          add-job-summary: 'never'
+
